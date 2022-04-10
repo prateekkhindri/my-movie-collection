@@ -27,7 +27,7 @@ export const CustomCard = ({ movieObj, func, btnDelete = false }) => {
             <Button variant="info" onClick={() => func("Happy")}>
               Happy
             </Button>
-            <Button variant="secondary" onClick={() => func("Lazy")}>
+            <Button variant="warning" onClick={() => func("Lazy")}>
               Lazy
             </Button>
           </div>

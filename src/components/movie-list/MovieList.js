@@ -48,7 +48,7 @@ export const MovieList = ({ movieList, deleteMovie }) => {
       </Row>
 
       <Row>
-        <Col className="d-flex flex-wrap ">
+        <Col className="d-flex flex-wrap">
           {filterMovies.map((movie, i) =>
             isGrid ? (
               <CustomCard

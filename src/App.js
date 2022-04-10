@@ -58,9 +58,11 @@ function App() {
         <Title />
         <SearchForm getMovie={getMovie} />
 
-        {searchedMovie?.imdbID && (
-          <CustomCard movieObj={searchedMovie} func={addToMovieList} />
-        )}
+        <div className="d-flex justify-content-center">
+          {searchedMovie?.imdbID && (
+            <CustomCard movieObj={searchedMovie} func={addToMovieList} />
+          )}
+        </div>
 
         <hr />
         <MovieList movieList={movieList} deleteMovie={deleteMovie} />
