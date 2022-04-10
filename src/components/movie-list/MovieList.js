@@ -42,7 +42,7 @@ export const MovieList = ({ movieList }) => {
       <Row>
         <Col className="d-flex flex-wrap justify-content-around">
           {filterMovies.map((movie, i) => (
-            <CustomCard key={i} movieObj={movie} />
+            <CustomCard key={i} movieObj={movie} btnDelete={true} />
           ))}
         </Col>
       </Row>
