@@ -25,6 +25,8 @@ function App() {
   const addToMovieList = (type) => {
     // const mv = { ...searchedMovie, cat: type };
     setMovieList([...movieList, { ...searchedMovie, cat: type }]);
+
+    setSearchMovie({});
   };
 
   // console.log(movie.data);
@@ -36,7 +38,10 @@ function App() {
         <Title />
         <SearchForm getMovie={getMovie} />
 
-        <CustomCard movieObj={searchedMovie} func={addToMovieList} />
+        {searchedMovie?.imdbID && (
+          <CustomCard movieObj={searchedMovie} func={addToMovieList} />
+        )}
+
         <hr />
         <MovieList movieList={movieList} />
       </Container>
