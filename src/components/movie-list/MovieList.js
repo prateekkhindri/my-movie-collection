@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { Button, ButtonGroup, Col, Row } from "react-bootstrap";
 import { CustomCard } from "../card/CustomCard";
+import { CustomList } from "../card/CustomList";
 
 export const MovieList = ({ movieList, deleteMovie }) => {
   // 1. Create a state to categorize the movies as per happy and lazy
 
   const [mood, setMood] = useState("");
+
+  // Grid and list view
+  const [isGrid, setIsGrid] = useState(true);
 
   // 1.1 Filter and display
 
@@ -33,22 +37,35 @@ export const MovieList = ({ movieList, deleteMovie }) => {
           </ButtonGroup>
 
           <ButtonGroup>
-            <Button variant="primary">Grid</Button>
-            <Button variant="info">List</Button>
+            <Button variant="primary" onClick={() => setIsGrid(true)}>
+              Grid
+            </Button>
+            <Button variant="info" onClick={() => setIsGrid(false)}>
+              List
+            </Button>
           </ButtonGroup>
         </Col>
       </Row>
 
       <Row>
-        <Col className="d-flex flex-wrap justify-content-around">
-          {filterMovies.map((movie, i) => (
-            <CustomCard
-              key={i}
-              movieObj={movie}
-              btnDelete={true}
-              func={deleteMovie}
-            />
-          ))}
+        <Col className="d-flex flex-wrap ">
+          {filterMovies.map((movie, i) =>
+            isGrid ? (
+              <CustomCard
+                key={i}
+                movieObj={movie}
+                btnDelete={true}
+                func={deleteMovie}
+              />
+            ) : (
+              <CustomList
+                key={i}
+                movieObj={movie}
+                btnDelete={true}
+                func={deleteMovie}
+              />
+            )
+          )}
         </Col>
       </Row>
     </div>
