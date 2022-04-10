@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import "./App.css";
 import { CustomCard } from "./components/card/CustomCard";
@@ -6,12 +6,21 @@ import { MovieList } from "./components/movie-list/MovieList";
 import { SearchForm } from "./components/search-form/SearchForm";
 import { Title } from "./components/title/Title";
 import { fetchMovie } from "./helper/axiosHelper";
+import { randomChar } from "./helper/randomGeneratorHelper";
 
 function App() {
   const [searchedMovie, setSearchMovie] = useState({});
 
   // 4. Create an array of movie state in app.js
   const [movieList, setMovieList] = useState([]);
+
+  // Passing random text to call the API so every time the page is reloaded we see a random movie
+  useEffect(() => {
+    // Create a random char
+    console.log("useEffect executed....");
+    const char = randomChar();
+    getMovie(char);
+  }, []);
 
   // 3. Creating a function to fetch the data from the API
   const getMovie = async (search) => {
