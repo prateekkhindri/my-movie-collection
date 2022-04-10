@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, ButtonGroup, Col, Row } from "react-bootstrap";
 import { CustomCard } from "../card/CustomCard";
 
-export const MovieList = ({ movieList }) => {
+export const MovieList = ({ movieList, deleteMovie }) => {
   // 1. Create a state to categorize the movies as per happy and lazy
 
   const [mood, setMood] = useState("");
@@ -42,7 +42,12 @@ export const MovieList = ({ movieList }) => {
       <Row>
         <Col className="d-flex flex-wrap justify-content-around">
           {filterMovies.map((movie, i) => (
-            <CustomCard key={i} movieObj={movie} btnDelete={true} />
+            <CustomCard
+              key={i}
+              movieObj={movie}
+              btnDelete={true}
+              func={deleteMovie}
+            />
           ))}
         </Col>
       </Row>

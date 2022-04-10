@@ -14,7 +14,11 @@ export const CustomCard = ({ movieObj, func, btnDelete = false }) => {
 
         {btnDelete ? (
           <div className="d-grid gap-2">
-            <Button variant="danger" size="lg">
+            <Button
+              variant="danger"
+              size="lg"
+              onClick={() => func(movieObj.imdbID)}
+            >
               Delete
             </Button>
           </div>

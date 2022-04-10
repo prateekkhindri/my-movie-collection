@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const api = "http://www.omdbapi.com/?apikey=4c8be5cb&";
+const api = "http://www.omdbapi.com/?apikey=6ae75855&";
 
 export const fetchMovie = (title) => {
   // Call the server

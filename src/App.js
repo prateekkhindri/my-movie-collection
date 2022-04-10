@@ -29,6 +29,17 @@ function App() {
     setSearchMovie({});
   };
 
+  // Deleting a movie when delete is clicked
+
+  const deleteMovie = (imdbID) => {
+    if (window.confirm("Are you sure you want to delete this movie ?")) {
+      const filteredMovieList = movieList.filter(
+        (movie) => movie.imdbID !== imdbID
+      );
+      setMovieList(filteredMovieList);
+    }
+  };
+
   // console.log(movie.data);
   console.log(searchedMovie);
 
@@ -43,7 +54,7 @@ function App() {
         )}
 
         <hr />
-        <MovieList movieList={movieList} />
+        <MovieList movieList={movieList} deleteMovie={deleteMovie} />
       </Container>
     </div>
   );
