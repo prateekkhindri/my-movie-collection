@@ -18,10 +18,10 @@ export const CustomCard = ({ movieObj, func }) => {
         </Card.Text> */}
 
         <div className="d-flex justify-content-around">
-          <Button variant="info" onClick={() => func("happy")}>
+          <Button variant="info" onClick={() => func("Happy")}>
             Happy
           </Button>
-          <Button variant="secondary" onClick={() => func("lazy")}>
+          <Button variant="secondary" onClick={() => func("Lazy")}>
             Lazy
           </Button>
         </div>
